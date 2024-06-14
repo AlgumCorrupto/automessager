@@ -81,7 +81,6 @@ while (True):
                       [red]0. Sair[/red]
                       """, 
                       choices=["1", "2", "3", "4", "0"], show_choices=False)
-
     match todo:
         case "0":
             exit()
