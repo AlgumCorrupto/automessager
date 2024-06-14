@@ -2,18 +2,28 @@ import datetime
 import tweepy
 import sqlite3
 import rich
+import os
 
 
 def sendMsg():
     db = sqlite3.connect('msgs.db')
     res = db.execute("SELECT msg FROM tweet")
     msgs = res.fetchone()
+    r = open('isSend', 'r')
+    content = r.read()
+    r.close()
+    if(content == '1'):
+        print("Mensagem já enviada hoje!")
+        return
     try:
         msg = msgs[0]
+        w = open('isSend', 'w')
+        w.flush()
+        w.write('1')
+        w.close()
     except:
         print("Mensagens Vazias, FEED ME MORE!!!!")
         return  
-
 # como o bot funciona: a cada vez que o bot detectar que é dia de mandar mensagem, ele manda uma das mensagens que está na database
 # e depois deleta ela!
 
@@ -49,7 +59,7 @@ while(True):
     # isso é bem trivial, só fazer o caching se ele enviou ou não.
     # agora vou mostrar ele em ação, tem 2 mensagens dentro da databse.
     # Se hoje for quarta
-    if(now == 3):
+    if(now == 4):
         if not already:
             msg = sendMsg()
             db = sqlite3.connect('msgs.db')
@@ -59,6 +69,10 @@ while(True):
         already = True
     # Se hoje for qualquer outro dia
     else:
+        w = open('isSend', 'w')
+        w.flush()
+        w.write('0')
+        w.close()
         already = False
 
 
