@@ -1,5 +1,5 @@
 <h1>Automessager</h1>
-<p>Pequeno protótipo para mandar mensagens automáticamente para o twitter</p>
+<p>Pequeno script para mandar mensagens automaticamente para o twitter</p>
 
 <h2>Como usar</h2>
 <ol>
@@ -17,4 +17,5 @@
     </ul> 
   </li>
 </ol>
+<p>Caso quiser adicionar novos Tweets: <code>python dbMan.py</code>, o runtime (aquele que vai rodar 24/7) é <code>python sender.py</code>.</p>
 :)
