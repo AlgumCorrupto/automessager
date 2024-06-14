@@ -59,7 +59,7 @@ while(True):
     # isso é bem trivial, só fazer o caching se ele enviou ou não.
     # agora vou mostrar ele em ação, tem 2 mensagens dentro da databse.
     # Se hoje for quarta
-    if(now == 4):
+    if now == 2:
         if not already:
             msg = sendMsg()
             db = sqlite3.connect('msgs.db')
@@ -69,10 +69,13 @@ while(True):
         already = True
     # Se hoje for qualquer outro dia
     else:
-        w = open('isSend', 'w')
-        w.flush()
-        w.write('0')
-        w.close()
+        try:
+            w = open('isSend', 'w')
+            w.flush()
+            w.write('0')
+            w.close()
+        except:
+            print("Houve uma tentativa falha de escrever no cache!")
         already = False
 
 
