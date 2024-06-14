@@ -1,5 +1,5 @@
 <h1>Automessager</h1>
-<p>Pequeno protótipo para mandar mensagens automáticamente para o twitter</p>
+<p>Pequeno protótipo para mandar mensagens automaticamente para o twitter</p>
 
 <h2>Como usar</h2>
 <ol>
