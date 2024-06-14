@@ -17,4 +17,5 @@
     </ul> 
   </li>
 </ol>
+<p>Caso quiser adicionar novos Tweets: <code>python dbMan.py</code>, o runtime (aquele que vai rodar 24/7) é <code>python sender.py</code>.</p>
 :)
